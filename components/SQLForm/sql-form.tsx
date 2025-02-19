@@ -89,7 +89,7 @@ export function SQLForm() {
 
   // Serialize the schema to pass to the LLM
   const serializedSchema = JSON.stringify({ tables });
-
+  
   return (
     <form action={formAction} className="space-y-6">
       <div className="mb-6">
