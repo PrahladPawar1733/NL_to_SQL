@@ -11,13 +11,13 @@ import { useSession } from 'next-auth/react';
 
 export function SQLForm() {
     const { data: session } = useSession();
-
+    const [state, formAction] = useActionState(generateSQL, { error: '' });
+    const [tables, setTables] = useState<Table[]>([]);
+    const [tableCounter, setTableCounter] = useState(1);
     if (!session) {
       return <p className="text-gray-600">Please sign in to use the tool.</p>;
     }
-  const [state, formAction] = useActionState(generateSQL, { error: '' });
-  const [tables, setTables] = useState<Table[]>([]);
-  const [tableCounter, setTableCounter] = useState(1);
+
 
   // Table operations
   const addTable = () => {
@@ -61,7 +61,7 @@ export function SQLForm() {
     tableId: number,
     columnId: number,
     field: keyof Column,
-    value: any
+    value: unknown
   ) => {
     setTables(
       tables.map((table) => {

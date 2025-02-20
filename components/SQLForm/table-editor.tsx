@@ -10,7 +10,7 @@ type TableEditorProps = {
   onUpdateTableName: (name: string) => void;
   onRemoveTable: () => void;
   onAddColumn: () => void;
-  onUpdateColumn: (columnId: number, field: keyof Column, value: any) => void;
+  onUpdateColumn: (columnId: number, field: keyof Column, value: unknown) => void;
   onRemoveColumn: (columnId: number) => void;
 };
 

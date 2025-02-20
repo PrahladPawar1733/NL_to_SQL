@@ -1,12 +1,10 @@
 'use server';
 
-import { Table } from '@/components/SQLForm/types';
 import { redirect } from 'next/navigation';
 
-export async function generateSQL(prevState: any, formData: FormData) {
+export async function generateSQL(prevState: unknown, formData: FormData) {
   const schema = formData.get('schema')?.toString();
   const question = formData.get('question')?.toString();
-  const tables: Table[] = schema  ? JSON.parse(schema ) : [];
   if (!schema || !question) {
     return { error: 'Both schema and question are required' };
   }

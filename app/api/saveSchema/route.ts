@@ -1,6 +1,4 @@
 import { NextResponse } from 'next/server';
-import { authOptions } from '../auth/[...nextauth]/route';
-import { getServerSession } from 'next-auth/next';
 import SchemaModel from '@/models/SchemaModel';
 import { connectDB } from '@/lib/mongodb';
 
@@ -8,7 +6,7 @@ export async function POST(req: Request) {
   await connectDB();
 
   // Retrieve the session using the server-side helper
-  const session = await getServerSession(authOptions);
+  // const _session = await getServerSession(authOptions);
   // console.log(session);
   // if (!session || !session.user) {
   //   console.log('Unauthorized session:', session);

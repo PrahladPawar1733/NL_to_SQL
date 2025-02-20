@@ -7,11 +7,11 @@ import { Column } from './types';
 type ColumnEditorProps = {
   tableId: number;
   column: Column;
-  onUpdate: (field: keyof Column, value: any) => void;
+  onUpdate: (field: keyof Column, value: unknown) => void;
   onRemove: () => void;
 };
 
-export function ColumnEditor({ tableId, column, onUpdate, onRemove }: ColumnEditorProps) {
+export function ColumnEditor({column, onUpdate, onRemove }: ColumnEditorProps) {
   return (
     <div className="flex flex-col space-y-2 mb-2 border p-2 rounded">
       <div className="flex flex-col md:flex-row md:space-x-2 text-black">
